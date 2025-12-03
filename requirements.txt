@@ -14,4 +14,4 @@ jupyter
 ipykernel
 pyyaml
 joblib
-
+faiss-cpu
