@@ -1,0 +1,17 @@
+pandas
+numpy
+scikit-learn
+lightgbm
+torch
+fastapi
+uvicorn
+pydantic
+sentence-transformers
+faiss-cpu
+matplotlib
+seaborn
+jupyter
+ipykernel
+pyyaml
+joblib
+
