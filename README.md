@@ -1,6 +1,18 @@
 # fintech-recommendation-engine
 This repository implements an end-to-end **FinTech product recommendation system** that can scale to millions of users.  - **Two-Tower Retrieval Model** for candidate generation - **Gradient-Boosted Tree Ranker** for final scoring
 
+### End-to-End Training Pipeline
+```bash scripts/run_full_pipeline.sh```
+### Start the Recommendation API
+```bash scripts/start_server.sh```
+
+### Once the server is running, open:
+Swagger UI (interactive API docs):
+http://127.0.0.1:8000/docs
+
+Example Recommendation Endpoint:
+http://127.0.0.1:8000/recommend/42?k=10
+
 The system demonstrates:
 
 - **Data Pipeline Architecture** (batch + near-real-time)
