@@ -2,15 +2,16 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install Python dependencies
+# Install system dependencies required by LightGBM
+RUN apt-get update && apt-get install -y libgomp1
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt \
     && pip install --no-cache-dir faiss-cpu
 
-# Copy project files
 COPY . .
 
-# Build everything needed for inference
+# Train models during build
 RUN python -m src.data.generate_synthetic_data && \
     python -m src.retrieval.e5_product_encoder && \
     python -m src.features.build_features && \
@@ -20,6 +21,5 @@ RUN python -m src.data.generate_synthetic_data && \
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
-# Bind to Render's provided port
 CMD uvicorn src.serving.app:app --host 0.0.0.0 --port $PORT
 
