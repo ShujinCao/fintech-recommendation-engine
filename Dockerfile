@@ -11,5 +11,5 @@ COPY . .
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
-CMD ["uvicorn", "src.serving.app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.serving.app:app", "--host", "0.0.0.0", "--port", "${PORT}"]
 
