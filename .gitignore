@@ -214,4 +214,4 @@ models/
 *.npy
 *.faissindex
 __pycache__/
-
+.DS_Store

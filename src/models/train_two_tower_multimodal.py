@@ -188,16 +188,19 @@ def main(
     TWO_TOWER_DIR.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), TWO_TOWER_DIR / "two_tower_multimodal.pt")
     # save config-like info
-    joblib.dump(
-        {
-            "num_users": num_users,
-            "num_products": num_products,
-            "prod_meta_dim": prod_meta_dim,
-            "prod_e5_dim": prod_e5_dim,
-            "user_hist_max_len": user_hist_max_len,
-        },
-        TWO_TOWER_DIR / "two_tower_meta.joblib",
-    )
+    joblib.dump({
+        "num_users": num_users,
+        "num_products": num_products,
+        "prod_meta_dim": prod_meta_dim,
+        "prod_e5_dim": prod_e5_dim,
+        "user_hist_max_len": user_hist_max_len,
+        "id_emb_dim": 32,
+        "hist_emb_dim": 32,
+        "meta_emb_dim": 32,
+        "e5_proj_dim": 64,  # or a fixed proj dim if you used one
+        "tower_hidden_dim": tower_hidden_dim,
+    }, TWO_TOWER_DIR / "two_tower_meta.joblib")
+
     print("Saved multimodal two-tower model to", TWO_TOWER_DIR)
 
     # precompute product embeddings for ANN

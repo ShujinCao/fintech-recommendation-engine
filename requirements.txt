@@ -8,10 +8,7 @@ uvicorn
 pydantic
 sentence-transformers
 faiss-cpu
-matplotlib
-seaborn
-jupyter
-ipykernel
 pyyaml
 joblib
-faiss-cpu
+requests
+
