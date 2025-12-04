@@ -21,5 +21,5 @@ ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
 # Bind to Render's provided port
-CMD ["uvicorn", "src.serving.app:app", "--host", "0.0.0.0", "--port", "${PORT}"]
+CMD uvicorn src.serving.app:app --host 0.0.0.0 --port $PORT
 
