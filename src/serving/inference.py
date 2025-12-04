@@ -18,7 +18,10 @@ class OnlineRecommender:
         print(">>> STEP 2: self.feature_pipeline, self.ranker")
         # ranker
         self.feature_pipeline = joblib.load(PROCESSED_DATA_DIR / "feature_pipeline.joblib")
-        self.ranker = lgb.Booster(model_file=str(PROCESSED_DATA_DIR.parent / "ranker" / "ranker.txt"))
+        from src.config import RANKER_DIR
+
+        self.ranker = lgb.Booster(model_file=str(RANKER_DIR / "ranker.txt"))
+
         print(">>> STEP 3: users, products")
 
         self.users = self.twotower_ann.users
