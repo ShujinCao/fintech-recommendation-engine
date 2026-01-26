@@ -208,7 +208,6 @@ __marimo__/
 
 data/raw/
 data/processed/
-models/
 *.pt
 *.joblib
 *.npy
